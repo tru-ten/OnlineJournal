@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Article
 
 def home(request):
     return render(request, 'journal/home_without_login.html')
@@ -35,3 +36,11 @@ def user_logout(request):
 
 def home_with_login(request):
     return render(request, 'journal/home_with_login.html')
+
+def article_list(request):
+    articles = Article.objects.all()
+    return render(request, 'journal/articles/article_list.html', {'articles': articles})
+
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    return render(request, 'journal/articles/article_detail.html', {'article': article})

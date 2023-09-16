@@ -25,5 +25,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
+    path('articles/', views.article_list, name='article_list'),
+    path('articles/<int:article_id>/', views.article_detail, name='article_detail'),
     # path('', include('journal.urls')),
 ]

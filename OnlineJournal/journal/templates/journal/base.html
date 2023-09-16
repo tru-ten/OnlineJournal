@@ -8,14 +8,23 @@
     <link type="text/css" href="{% static 'journal\css\home.css' %}" rel="stylesheet">
 </head>
 <body>
-    {% block account %}
-    <div class="container">
-          <div class="col-md-3 text-end">
-            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
-            <a href="{% url 'register' %}" class="btn btn-primary">Зареєструватися</a>
-          </div>
-        </header>
-      </div>
-    {% endblock %}
+    <header>
+      {% block account %}
+        <div class="container">
+              <div class="col-md-3 text-end">
+                <a href="{% url 'login' %}" class="btn btn-primary">Увійти</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Зареєструватися</a>
+              </div>
+            </header>
+        </div>
+      {% endblock %}
+    </header>
+
+    <section class="hero">
+      <h1>Ласкаво просимо до онлайн-журналу</h1>
+      <p>Це поки тимчасова версія головної сторінки.</p>
+      <a href="{% url 'article_list' %}" class="btn btn-primary">Переглянути статті</a>
+    </section>
+
 </body>
 </html>
