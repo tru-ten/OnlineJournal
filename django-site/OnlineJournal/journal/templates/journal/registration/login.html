@@ -1,0 +1,31 @@
+{% extends 'journal/registration/base.html' %}
+
+{% block title %}
+Логування
+{% endblock %}
+
+{% block content %}
+<div class="registration-container">
+    <h2>Вхід</h2>
+    <form method="post">
+        {% csrf_token %}
+        <!-- {{ form.username.label_tag }} {{ form.username }}
+        {{ form.password.label_tag }} {{ form.password }}
+        <button type="submit">Увійти</button> -->
+        <label for="id_username">Ім'я користувача:</label>
+        <input type="text" id="id_username" name="username">
+        <p></p>
+        <label for="id_password">Пароль:</label>
+        <input type="password" id="id_password" name="password">
+        <p></p>
+        <button type="submit">Увійти</button>
+    </form>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}
